@@ -3,13 +3,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('.menu a[href^="#"]');
+    const navMenu = document.querySelector('.menu');
+    const hamburgerBtn = document.getElementById('hamburger-menu');
+    const hamburgerIcon = hamburgerBtn ? hamburgerBtn.querySelector('i') : null;
     
+    // Hamburger Menu Toggle
+    if (hamburgerBtn && navMenu) {
+        hamburgerBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            navMenu.classList.toggle('active');
+            
+            // Toggle icon between bars and X
+            if (navMenu.classList.contains('active')) {
+                hamburgerIcon.classList.remove('fa-bars');
+                hamburgerIcon.classList.add('fa-times');
+            } else {
+                hamburgerIcon.classList.remove('fa-times');
+                hamburgerIcon.classList.add('fa-bars');
+            }
+        });
+    }
+
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
             
+            // Close mobile menu if it's open
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                if(hamburgerIcon) {
+                    hamburgerIcon.classList.remove('fa-times');
+                    hamburgerIcon.classList.add('fa-bars');
+                }
+            }
+
             if (targetSection) {
                 window.scrollTo({
                     top: targetSection.offsetTop - 50,
