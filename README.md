@@ -6,22 +6,40 @@ A modern and responsive landing page for Alex Gym. This project is built to show
 
 - **Responsive Design**: Designed to work smoothly across varying screen sizes.
 - **Smooth Scrolling Navigation**: Smoothly glides to different sections of the page via the navigation menu (powered by JavaScript).
-- **Interactive Contact Form**: Includes client-side form validation and alerts.
-- **Social Media Links**: Quick access to gym updates via FontAwesome icons.
+- **Interactive Contact Form (Full Stack)**: Includes frontend validation and a Node.js/Express backend that saves leads directly to a local JSON database.
+- **BMI Calculator**: Real-time JavaScript-powered tool providing custom color-coded health categorizations.
+- **Dark Mode Hook**: Integrated light/dark mode toggle switch.
 
 ## Project Structure
 
-- `Alex Gym.html`: The main document structuring the webpage content.
-- `styles.css`: Stylesheet governing layout, colors, typography, and visual design.
-- `script.js`: Interactive JavaScript code controlling user experience (scrolling, button events, and form verification).
-- `website_photos/`: Directory housing all the images of gym trainers and success stories.
+- `client/`: Contains the frontend UI.
+  - `Alex Gym.html`: The main document structuring the webpage content.
+  - `styles.css`: Stylesheet governing layout, dark mode, colors, and visual design.
+  - `script.js`: JavaScript controlling scroll logic, mobile menu, BMI calculations, and API fetching.
+  - `website_photos/`: Images of gym trainers and success stories.
+- `server/`: Contains the Node.js backend.
+  - `server.js`: Express API handling `GET` status and `POST` form submissions.
+  - `leads.json`: Auto-generated file capturing submitted contact forms.
 
 ## Technologies Used
 
-- HTML5
-- CSS3
-- JavaScript (Vanilla)
+- HTML5, CSS3, JavaScript (Vanilla Frontend)
+- Node.js & Express (Backend Server)
 - FontAwesome (Icons)
+
+## How to Run Locally
+
+1. **Start the Backend Server**:
+   Open a terminal, navigate to the `server` folder, install the packages, and run the server.
+   ```bash
+   cd server
+   npm install
+   node server.js
+   ```
+2. **Open the Frontend**:
+   Simply open `client/Alex Gym.html` in your web browser. 
+3. **Test the Lead System**:
+   Fill out the "Contact Us" form on the webpage and hit Send. Check your `server/leads.json` file to see the newly saved data!
 
 ---
 
