@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 contactFormBtn.disabled = true;
 
                 // Send data to our new backend API using fetch
-                fetch('http://localhost:3000/api/contact', {
+                fetch('https://alex-gym.onrender.com/api/contact', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
